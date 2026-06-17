@@ -1,6 +1,8 @@
 from selenium.webdriver.common.by import By
 from base_page import BasePage
 import logging
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 logger = logging.getLogger(__name__)
 
@@ -18,4 +20,7 @@ class LoginPage(BasePage):
         self.send_keys(self.USERNAME_INPUT, username)
         self.send_keys(self.PASSWORD_INPUT, password)
         self.click(self.LOGIN_BUTTON)
+        WebDriverWait(self.driver, 2).until(
+            EC.url_changes(self.driver.current_url)
+        )
         logger.info("Процедура входа завершена.")

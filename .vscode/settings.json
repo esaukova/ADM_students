@@ -1,0 +1,7 @@
+{
+    "python.testing.pytestArgs": [
+        "ADM_students-feature-redadm-auth-tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
