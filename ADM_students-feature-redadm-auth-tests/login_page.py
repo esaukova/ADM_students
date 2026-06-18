@@ -20,7 +20,4 @@ class LoginPage(BasePage):
         self.send_keys(self.USERNAME_INPUT, username)
         self.send_keys(self.PASSWORD_INPUT, password)
         self.click(self.LOGIN_BUTTON)
-        WebDriverWait(self.driver, 2).until(
-            EC.url_changes(self.driver.current_url)
-        )
         logger.info("Процедура входа завершена.")

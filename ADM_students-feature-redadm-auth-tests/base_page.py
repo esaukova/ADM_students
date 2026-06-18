@@ -50,3 +50,14 @@ class BasePage:
                 f"Элемент {locator} не найден на странице за {timeout} сек."
             )
             return False
+
+    def is_element_invisible(self, locator, timeout=10):
+        try:
+            WebDriverWait(self.driver, timeout).until(
+                EC.invisibility_of_element_located(locator)
+            )
+            logger.info(f"Элемент {locator} не виден на странице.")
+            return True
+        except TimeoutException:
+            logger.warning(f"Элемент {locator} не исчез за {timeout} сек.")
+            return False
